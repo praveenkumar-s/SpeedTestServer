@@ -6,8 +6,7 @@ RUN apt-get update && \
         apt-get update -y  && \
 
         # update pip
-        python3.6 -m pip install pip --upgrade && \
-        python3.6 -m pip install wheel
+        python3.6 -m pip install pip --upgrade 
 
 
 RUN apt-get install gnupg1 apt-transport-https dirmngr
