@@ -1,16 +1,16 @@
 FROM ubuntu:16.04
 
 RUN apt-get update && \
-  apt-get install -y software-properties-common && \
-  add-apt-repository ppa:jonathonf/python-3.6
+        apt-get install -y software-properties-common && \
+        add-apt-repository ppa:jonathonf/python-3.6 && \
+        apt-get update -y  && \
+        apt-get install -y build-essential python3.6 python3.6-dev python3-pip && \
+        apt-get install -y git  && \
+        # update pip
+        python3.6 -m pip install pip --upgrade && \
+        python3.6 -m pip install wheel
 
 
-RUN apt-get install -y build-essential python3.6 python3.6-dev python3-pip python3.6-venv
-RUN apt-get install -y git
-
-# update pip
-RUN python3.6 -m pip install pip --upgrade
-RUN python3.6 -m pip install wheel
 RUN apt-get install gnupg1 apt-transport-https dirmngr
 RUN export INSTALL_KEY=379CE192D401AB61
 RUN export DEB_DISTRO=$(lsb_release -sc)
