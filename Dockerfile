@@ -1,6 +1,6 @@
 FROM python:alpine3.7
 
-RUN apt-get install gnupg1 apt-transport-https dirmngr
+RUN apk install gnupg1 apt-transport-https dirmngr
 RUN export INSTALL_KEY=379CE192D401AB61
 RUN export DEB_DISTRO=$(lsb_release -sc)
 #RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys $INSTALL_KEY
