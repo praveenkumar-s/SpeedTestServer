@@ -16,8 +16,8 @@ def speed_get():
         output = subprocess.check_output(["speedtest",'--json'])
         output= output.decode('utf-8')
         output_js = json.loads(output)
-        up= str(output_js['upload']['bandwidth']/divide_by)+' Mbps'
-        down = str(output_js['download']['bandwidth']/divide_by)+' Mbps'
+        up= str(output_js['upload']/divide_by)+' Mbps'
+        down = str(output_js['download']/divide_by)+' Mbps'
         data_dummy['upload']=up
         data_dummy['download']=down
         return jsonify(data_dummy)
